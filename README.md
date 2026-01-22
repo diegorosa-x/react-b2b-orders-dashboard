@@ -1,4 +1,4 @@
-# React B2B Orders Dashboard
+# React B2B Orders 
 
 Aplicação frontend para gestão de pedidos em um contexto B2B, desenvolvida com React, Next.js e TypeScript.
 
