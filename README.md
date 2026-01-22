@@ -57,15 +57,15 @@ src/
 
 Zustand foi escolhido para gerenciamento de estado por ser simples, performático e adequado ao escopo do projeto.
 
--O estado é persistido no localStorage, garantindo funcionamento correto em navegação direta e reload da página.
+- O estado é persistido no localStorage, garantindo funcionamento correto em navegação direta e reload da página.
 
--A API foi mockada para manter o foco no frontend e evitar complexidade desnecessária.
+- A API foi mockada para manter o foco no frontend e evitar complexidade desnecessária.
 
--O layout foi desenvolvido com foco em responsividade, separando visualização desktop e mobile.
+- O layout foi desenvolvido com foco em responsividade, separando visualização desktop e mobile.
 
--O escopo foi mantido intencionalmente enxuto para priorizar clareza, legibilidade e boas práticas de código.
+- O escopo foi mantido intencionalmente enxuto para priorizar clareza, legibilidade e boas práticas de código.
 
--Separação clara entre lógica de negócio e componentes de UI.
+- Separação clara entre lógica de negócio e componentes de UI.
 
 ## ▶️ Como rodar o projeto localmente
 ```bash
