@@ -21,9 +21,8 @@ As principais funcionalidades incluem:
 
 ## 🛠️ Stack Utilizada
 
-- React
+- Next.js
 - TypeScript
-- Vite
 - Zustand (gerenciamento de estado)
 - API mockada (dados simulados)
 
