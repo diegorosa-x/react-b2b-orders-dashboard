@@ -4,5 +4,9 @@ export interface Order {
   id: string;
   customer: string;
   status: OrderStatus;
-  createdAt?: string; 
+  createdAt?: string;
+  updatedAt?: string;
+  total?: number;
+  itemsCount?: number;
+  email?: string;
 }

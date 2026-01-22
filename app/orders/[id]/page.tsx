@@ -1,4 +1,3 @@
-// src/app/orders/[id]/page.tsx
 'use client';
 
 import { useParams } from 'next/navigation';
@@ -26,7 +25,6 @@ export default function OrderDetailPage() {
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      {/* Cabeçalho */}
       <div className="flex justify-between items-center mb-6">
         <a
           href="/orders"
@@ -39,7 +37,6 @@ export default function OrderDetailPage() {
         </h1>
       </div>
 
-      {/* Card de informações principais */}
       <div className="bg-white dark:bg-zinc-800 shadow rounded-lg p-6 grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         <div>
           <h2 className="text-gray-500 dark:text-gray-400 font-semibold mb-1">
