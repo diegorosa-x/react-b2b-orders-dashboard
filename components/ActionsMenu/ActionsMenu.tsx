@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useOrdersStore } from '../store/ordersStore';
-import { Order, OrderStatus } from '../types/order';
+import { useOrdersStore } from '../../store/ordersStore';
+import { Order, OrderStatus } from '../../types/order';
 import Link from 'next/link';
 
 const statusColors: Record<OrderStatus, string> = {

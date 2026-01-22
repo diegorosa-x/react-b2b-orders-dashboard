@@ -1,5 +1,5 @@
 import { Order, OrderStatus } from '../../types/order';
-import { ActionsMenu } from '../../components/ActionsMenu';
+import { ActionsMenu } from '../../components/ActionsMenu/ActionsMenu';
 import React from 'react';
 
 type Column<T extends object> = {

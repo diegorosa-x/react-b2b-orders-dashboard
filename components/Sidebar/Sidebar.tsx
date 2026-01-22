@@ -49,6 +49,8 @@ export const Sidebar = ({ items }: SidebarProps) => {
                 </div>
             </div>
 
+        <div className="border-t border-gray-300 dark:border-zinc-700 mt-4 mb-5" />
+
           <nav className="flex flex-col gap-2 flex-1 overflow-y-auto">
             {items.map((item) => {
               const Icon = item.icon;
