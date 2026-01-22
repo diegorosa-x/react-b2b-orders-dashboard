@@ -35,9 +35,13 @@ A estrutura foi organizada por responsabilidade, visando escalabilidade e manute
 
 src/
 ├─ components/ # Componentes reutilizáveis
+
 ├─ features/orders/ # Domínio de pedidos (componentes, hooks, services e types)
+
 ├─ store/ # Estado global da aplicação
+
 ├─ services/ # Camada de acesso a dados (API mockada)
+
 ├─ types/ # Tipagens compartilhadas
 
 
