@@ -81,4 +81,4 @@ http://localhost:3000
 ## 🚀 Deploy
 
 O projeto está publicado na Vercel e pode ser acessado em:
-https://SEU-LINK-VERCEL-AQUI.vercel.app
+[Link do projeto](https://react-b2b-orders-dashboard.vercel.app/)
