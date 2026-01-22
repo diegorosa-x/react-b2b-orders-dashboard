@@ -1,6 +1,6 @@
 # React B2B Orders 
 
-Aplicação frontend para gestão de pedidos em um contexto B2B, desenvolvida com React, Next.js e TypeScript.
+Aplicação frontend para simular gestão de pedidos, desenvolvida com React, Next.js e TypeScript.
 
 O objetivo do projeto é demonstrar organização de código, componentização, gerenciamento de estado e boas práticas em aplicações frontend, mantendo o escopo propositalmente simples.
 
