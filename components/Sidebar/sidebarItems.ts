@@ -7,5 +7,5 @@ export type SidebarItem = {
 };
 
 export const sidebarItems = [
-  { label: 'Orders', href: '/', icon: List },
+  { label: 'Pedidos', href: '/', icon: List },
 ];

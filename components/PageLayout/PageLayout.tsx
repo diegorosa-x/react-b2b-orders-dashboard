@@ -12,7 +12,10 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
   return (
     <div className="flex min-h-screen">
       <Sidebar items={sidebarItems} />
-      <main className="flex-1 p-6">{children}</main>
+      <main className="flex-1 p-6 flex flex-col min-h-0">
+        {/* min-h-0 + flex-1 evita que overflow no conteúdo quebre a página */}
+        <div className="flex-1 overflow-auto min-h-0">{children}</div>
+      </main>
     </div>
   );
 };
