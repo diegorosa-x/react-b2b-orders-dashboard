@@ -33,6 +33,7 @@ As principais funcionalidades incluem:
 A estrutura foi organizada por responsabilidade, visando escalabilidade e manutenção:
 
 src/
+
 ├─ components/ # Componentes reutilizáveis
 
 ├─ features/orders/ # Domínio de pedidos (componentes, hooks, services e types)
