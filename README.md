@@ -55,7 +55,7 @@ src/
 
 ## 🧠 Decisões Técnicas
 
-Zustand foi escolhido para gerenciamento de estado por ser simples, performático e adequado ao escopo do projeto.
+- Zustand foi escolhido para gerenciamento de estado por ser simples, performático e adequado ao escopo do projeto.
 
 - O estado é persistido no localStorage, garantindo funcionamento correto em navegação direta e reload da página.
 
