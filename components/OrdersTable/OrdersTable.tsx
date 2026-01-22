@@ -1,25 +1,35 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Order, OrderStatus } from '../../types/order';
 
 import { TableFilter } from '../../shared/TableList/TableFilter';
 import { TablePagination } from '../../shared/TableList/TablePagination';
+import { TableListSkeleton } from '@/shared/TableList/TableListSkeleton';
 
 import { OrdersTableDesktop } from './OrdersTableDesktop';
 import { OrdersTableMobile } from './OrdersTableMobile';
 
 type OrdersTableProps = {
   orders: Order[];
-  updateStatus: (id: string, status: OrderStatus) => void;
 };
 
-export const OrdersTable = ({ orders, updateStatus }: OrdersTableProps) => {
+export const OrdersTable = ({ orders }: OrdersTableProps) => {
   const [filter, setFilter] = useState<OrderStatus | 'All'>('All');
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [loading, setLoading] = useState(true);
+
   const ordersPerPage = 5;
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const filteredOrders = orders.filter((order) => {
     const matchStatus =
@@ -45,7 +55,7 @@ export const OrdersTable = ({ orders, updateStatus }: OrdersTableProps) => {
 
   return (
     <div className="p-4 bg-white dark:bg-zinc-900 rounded-lg shadow-md">
-      
+
       <TableFilter<OrderStatus | 'All'>
         options={['All', 'Pendente', 'Em andamento', 'Concluído']}
         current={filter}
@@ -61,24 +71,30 @@ export const OrdersTable = ({ orders, updateStatus }: OrdersTableProps) => {
         searchPlaceholder="Buscar por pedido, nome ou email..."
       />
 
-      <div className="hidden md:block">
-        <OrdersTableDesktop
-          orders={currentOrders}
+      {loading ? (
+        <TableListSkeleton />
+      ) : (
+        <>
+          <div className="hidden md:block">
+            <OrdersTableDesktop orders={currentOrders} />
+          </div>
+
+          <div className="block md:hidden">
+            <OrdersTableMobile orders={currentOrders} />
+          </div>
+        </>
+      )}
+
+      {!loading && (
+        <TablePagination
+          current={currentPage}
+          total={totalPages}
+          onPrev={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          onNext={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
         />
-      </div>
-
-      <div className="md:hidden">
-        <OrdersTableMobile orders={currentOrders} />
-      </div>
-
-      <TablePagination
-        current={currentPage}
-        total={totalPages}
-        onPrev={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-        onNext={() =>
-          setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-        }
-      />
+      )}
     </div>
   );
 };
