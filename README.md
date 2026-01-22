@@ -33,16 +33,17 @@ As principais funcionalidades incluem:
 A estrutura foi organizada por responsabilidade, visando escalabilidade e manutenção:
 
 src/
-
-├─ components/ # Componentes reutilizáveis
-
-├─ features/orders/ # Domínio de pedidos (componentes, hooks, services e types)
-
-├─ store/ # Estado global da aplicação
-
-├─ services/ # Camada de acesso a dados (API mockada)
-
-├─ types/ # Tipagens compartilhadas
+├─ app/                     # App router (ou pages/ se estiver usando pages router)
+│  ├─ page.tsx              # Página inicial (Dashboard)
+│  ├─ orders/               # Rotas específicas de pedidos
+│  │  ├─ page.tsx           # Lista de pedidos
+│  │  └─ [id]/page.tsx      # Detalhe do pedido
+│  └─ layout.tsx            # Layout global (header, sidebar, etc.)
+├─ components/              # Componentes reutilizáveis
+├─ features/orders/         # Domínio de pedidos (hooks, types, services)
+├─ store/                   # Zustand / estado global
+├─ services/                # API mockada / fetchers
+├─ types/                   # Tipagens compartilhadas
 
 
 ---
