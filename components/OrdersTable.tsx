@@ -13,7 +13,7 @@ type OrdersTableProps = {
   updateStatus: (id: string, status: OrderStatus) => void;
 };
 
-export const OrdersTable = ({ orders, updateStatus }: OrdersTableProps) => {
+export const OrdersTable = ({ orders }: OrdersTableProps) => {
   const [filter, setFilter] = useState<OrderStatus | 'All'>('All');
   const [currentPage, setCurrentPage] = useState(1);
   const ordersPerPage = 5;
@@ -27,7 +27,7 @@ export const OrdersTable = ({ orders, updateStatus }: OrdersTableProps) => {
 
   return (
     <div className="p-4 bg-white dark:bg-zinc-900 rounded-lg shadow-md">
-      <TableFilter
+      <TableFilter<OrderStatus | 'All'>
         options={['All', 'Pendente', 'Em andamento', 'Concluído']}
         current={filter}
         onChange={(val) => {
@@ -36,7 +36,10 @@ export const OrdersTable = ({ orders, updateStatus }: OrdersTableProps) => {
         }}
       />
 
-      <TableList columns={ordersColumns(updateStatus)} data={currentOrders} />
+      <TableList<Order>
+        columns={ordersColumns()}
+        data={currentOrders}
+      />
 
       <TablePagination
         current={currentPage}

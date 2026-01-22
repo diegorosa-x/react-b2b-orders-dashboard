@@ -2,9 +2,9 @@ import { Order, OrderStatus } from '../../types/order';
 import { ActionsMenu } from '../../components/ActionsMenu';
 import React from 'react';
 
-type Column<T> = {
+type Column<T extends object> = {
   header: string;
-  accessor: keyof T | ((row: T) => React.ReactNode); // JSX é ReactNode
+  accessor: keyof T | ((row: T) => React.ReactNode);
   className?: string;
 };
 
@@ -20,17 +20,7 @@ const renderStatus = (status: OrderStatus) => (
   </span>
 );
 
-// Ajuste principal: tipagem explícita de props
-const renderActions = (
-  row: Order,
-  updateStatus: (id: string, status: OrderStatus) => void
-): React.ReactNode => {
-  return <ActionsMenu order={row} updateStatus={updateStatus} />;
-};
-
-export const ordersColumns = (
-  updateStatus: (id: string, status: OrderStatus) => void
-): Column<Order>[] => [
+export const ordersColumns = (): Column<Order>[] => [
   { header: 'Cliente', accessor: 'customer' },
   { header: 'Email', accessor: 'email' },
   { header: 'Status', accessor: (row) => renderStatus(row.status) },
@@ -38,5 +28,5 @@ export const ordersColumns = (
   { header: 'Total', accessor: (row) => `R$ ${row.total?.toFixed(2) || '0,00'}` },
   { header: 'Criado em', accessor: 'createdAt' },
   { header: 'Última Atualização', accessor: 'updatedAt' },
-  { header: 'Ações', accessor: (row) => renderActions(row, updateStatus) },
+  { header: 'Ações', accessor: (row) => <ActionsMenu order={row} /> },
 ];

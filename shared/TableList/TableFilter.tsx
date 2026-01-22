@@ -10,11 +10,13 @@ export const TableFilter = <T,>({ options, current, onChange }: TableFilterProps
       <button
         key={String(opt)}
         className={`px-3 py-1 rounded ${
-          current === opt ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-zinc-700 text-black dark:text-white'
+          current === opt
+            ? 'bg-blue-500 text-white'
+            : 'bg-gray-200 dark:bg-zinc-700 text-black dark:text-white'
         }`}
         onClick={() => onChange(opt)}
       >
-        {opt}
+        {String(opt)}
       </button>
     ))}
   </div>
