@@ -47,20 +47,49 @@ export default function OrderDetailPage() {
 
         <div>
           <h2 className="text-gray-500 dark:text-gray-400 font-semibold mb-1">
+            Email
+          </h2>
+          <p className="text-gray-900 dark:text-gray-50 font-medium">{order.email || '—'}</p>
+        </div>
+
+        <div>
+          <h2 className="text-gray-500 dark:text-gray-400 font-semibold mb-1">
+            Status
+          </h2>
+          <span className={`px-3 py-1 rounded ${statusColors[order.status]} font-medium`}>
+            {order.status}
+          </span>
+        </div>
+
+        <div>
+          <h2 className="text-gray-500 dark:text-gray-400 font-semibold mb-1">
+            Itens
+          </h2>
+          <p className="text-gray-900 dark:text-gray-50 font-medium">{order.itemsCount}</p>
+        </div>
+
+        <div>
+          <h2 className="text-gray-500 dark:text-gray-400 font-semibold mb-1">
+            Total
+          </h2>
+          <p className="text-gray-900 dark:text-gray-50 font-medium">${order.total}</p>
+        </div>
+
+        <div>
+          <h2 className="text-gray-500 dark:text-gray-400 font-semibold mb-1">
             Criado em
           </h2>
           <p className="text-gray-900 dark:text-gray-50 font-medium">{order.createdAt || '—'}</p>
         </div>
 
-        <div className="sm:col-span-2 flex items-center gap-4">
-          <h2 className="text-gray-500 dark:text-gray-400 font-semibold">Status</h2>
-          <span className={`px-3 py-1 rounded ${statusColors[order.status]} font-medium`}>
-            {order.status}
-          </span>
+        <div>
+          <h2 className="text-gray-500 dark:text-gray-400 font-semibold mb-1">
+            Última atualização
+          </h2>
+          <p className="text-gray-900 dark:text-gray-50 font-medium">{order.updatedAt || '—'}</p>
         </div>
       </div>
 
-      {/* Produtos */}
       {order.products && order.products.length > 0 && (
         <div className="bg-white dark:bg-zinc-800 shadow rounded-lg p-6">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
