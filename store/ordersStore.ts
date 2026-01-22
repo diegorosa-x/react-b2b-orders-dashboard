@@ -7,7 +7,7 @@ interface OrdersState {
     updateStatus: (id: string, status: OrderStatus) => void;
 }
 
-export const userOrdersStore = create<OrdersState>((set) => ({
+export const useOrdersStore = create<OrdersState>((set) => ({
   orders: [],
   setOrders: (orders) => set({ orders }),
   updateStatus: (id, status) =>
