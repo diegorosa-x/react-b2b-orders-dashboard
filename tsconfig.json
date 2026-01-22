@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "shared/DetailCard/orderDetailsConfig.tsx"  ],
   "exclude": ["node_modules"]
 }

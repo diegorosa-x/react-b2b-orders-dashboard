@@ -6,7 +6,7 @@ import { Order, OrderStatus } from '../types/order';
 import { TableList } from '../shared/TableList/TableList';
 import { TableFilter } from '../shared/TableList/TableFilter';
 import { TablePagination } from '../shared/TableList/TablePagination';
-import { ordersColumns } from '../shared/TableList/ordersColumns';
+import { ordersColumns } from '../shared/TableList/ordersColumnsConfig';
 
 type OrdersTableProps = {
   orders: Order[];
