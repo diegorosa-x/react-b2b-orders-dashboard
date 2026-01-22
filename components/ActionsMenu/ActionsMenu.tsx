@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useOrdersStore } from '../../store/ordersStore';
 import { Order, OrderStatus } from '../../types/order';
 import Link from 'next/link';
+import { Tooltip } from '@/shared/Tooltip/Tooltip';
 
 const statusColors: Record<OrderStatus, string> = {
   'Pendente': 'bg-yellow-100 text-yellow-800',
@@ -21,12 +22,14 @@ export const ActionsMenu = ({ order }: ActionsMenuProps) => {
 
   return (
     <div className="relative">
-      <button
-        onClick={() => setOpen((prev) => !prev)}
-        className="px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-zinc-700"
-      >
-        ⋯
-      </button>
+      <Tooltip label="Ações">
+        <button
+          onClick={() => setOpen((prev) => !prev)}
+          className="px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-zinc-700"
+        >
+          ⋯
+        </button>
+      </Tooltip>
 
       {open && (
         <div className="absolute right-0 mt-1 w-48 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded shadow-md z-10">
