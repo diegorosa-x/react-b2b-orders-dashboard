@@ -2,23 +2,29 @@
 
 import { useParams } from 'next/navigation';
 import { useOrdersStore } from '@/store/ordersStore';
-import { getOrderDetails, getOrderProductDetails } from '@/shared/DetailCard/orderDetailsConfig';
+import {
+  getOrderDetails,
+  getOrderProductDetails,
+} from '@/shared/DetailCard/orderDetailsConfig';
 import { DetailCard } from '@/shared/DetailCard/DetailCard';
 import { Breadcrumb } from '@/shared/Breadcrumb/Breadcrumb';
 import { PageLayout } from '@/components/PageLayout/PageLayout';
 import { PageContainer } from '@/shared/PageContainer/PageContainer';
 
 export default function OrderDetailPage() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const orders = useOrdersStore((state) => state.orders);
+
   const order = orders.find((o) => o.id === id);
 
   if (!order) {
     return (
       <PageLayout>
-        <div className="p-6 text-center text-gray-500 dark:text-gray-400">
-          Pedido não encontrado.
-        </div>
+        <PageContainer title="Detalhes do Pedido">
+          <div className="p-6 text-center text-gray-500">
+            Pedido não encontrado.
+          </div>
+        </PageContainer>
       </PageLayout>
     );
   }
@@ -33,12 +39,17 @@ export default function OrderDetailPage() {
 
   return (
     <PageLayout>
-        <PageContainer title="Detalhes Pedidos" subtitle="Todos dos pedidos cadastrados">
-            <Breadcrumb items={breadcrumbItems} />
-            <DetailCard items={orderDetails} />
-            {productDetails.length > 0 && (
-                <DetailCard title="Produtos" items={productDetails} />
-            )}
+      <PageContainer
+        title="Detalhes do Pedido"
+        subtitle="Informações completas do pedido"
+      >
+        <Breadcrumb items={breadcrumbItems} />
+
+        <DetailCard items={orderDetails} />
+
+        {productDetails.length > 0 && (
+          <DetailCard title="Produtos" items={productDetails} />
+        )}
       </PageContainer>
     </PageLayout>
   );

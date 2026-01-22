@@ -8,7 +8,6 @@ import { PageContainer } from '@/shared/PageContainer/PageContainer';
 
 export default function OrdersPage() {
   const orders = useOrdersStore((state) => state.orders);
-  const updateStatus = useOrdersStore((state) => state.updateStatus);
   const setOrders = useOrdersStore((state) => state.setOrders);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ export default function OrdersPage() {
 
   return (
       <PageContainer title="Lista de Pedidos" subtitle="Todos os pedidos cadastrados">
-        <OrdersTable orders={orders} updateStatus={updateStatus} />
+        <OrdersTable orders={orders} />
       </PageContainer>
   );
 }
